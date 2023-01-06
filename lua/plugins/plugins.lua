@@ -60,6 +60,12 @@ return require('packer').startup(function(use)
         -- branch = 'v1.x', -- won't receive breaking changes
         requires = { 'nvim-tree/nvim-web-devicons', 'nvim-lua/plenary.nvim' },
     })
+    use { 'gen740/SmoothCursor.nvim',
+        config = function()
+            require('smoothcursor').setup()
+        end
+    }
+    use 'andweeb/presence.nvim'
 
     -- Statusbar
     use({
