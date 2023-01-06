@@ -1,5 +1,9 @@
 vim.opt.signcolumn = 'yes' -- Reserve space for diagnostic icons
 
+require("neodev").setup({
+  -- add any options here, or leave empty to use the default settings
+})
+
 local lsp = require('lsp-zero')
 lsp.preset('recommended')
 
