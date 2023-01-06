@@ -1,0 +1,6 @@
+require("plugins.config.colors")
+require("plugins.config.lsp")
+require("plugins.config.treesitter")
+require("plugins.config.nvim-tree")
+require("plugins.config.shade")
+require("plugins.config.lualine")
