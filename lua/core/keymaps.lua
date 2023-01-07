@@ -28,7 +28,7 @@ vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
 vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
 vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
-vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+vim.keymap.set("n", "<leader>S", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 vim.keymap.set("n", "<leader>xf", "<cmd>!chmod +x %<CR>", { silent = true })
 
 -- Window movement keymaps
@@ -42,7 +42,7 @@ local builtin = require("telescope.builtin")
 vim.keymap.set("n", "<leader>pf", builtin.find_files, {})
 vim.keymap.set("n", "<leader>gf", builtin.git_files, {})
 vim.keymap.set("n", "<leader>ps", function()
-    builtin.grep_string({ search = vim.fn.input("Grep > ") });
+    builtin.grep_string({ search = vim.fn.input({"Grep > "}) });
 end)
 vim.keymap.set("n", "<leader>ls", builtin.live_grep, {})
 
@@ -61,3 +61,29 @@ vim.keymap.set('t', '<M-h>', "<Cmd>wincmd h<CR>")
 vim.keymap.set('t', '<M-j>', "<Cmd>wincmd j<CR>")
 vim.keymap.set('t', '<M-k>', "<Cmd>wincmd k<CR>")
 vim.keymap.set('t', '<M-l>', "<Cmd>wincmd l<CR>")
+
+-- Font Resize For GUI
+if vim.g.nvui then
+    function resizeFont(amount)
+        amount = amount or 0
+        if amount == 0 then
+            vim.g.currentFontSize = vim.g.defaultFontSize
+            vim.opt.guifont =
+            {
+                vim.g.fontFamily,
+                ":h" .. vim.g.currentFontSize
+            }
+        else
+            vim.g.currentFontSize = vim.g.currentFontSize + amount
+            vim.opt.guifont =
+            {
+                vim.g.fontFamily,
+                ":h" .. vim.g.currentFontSize
+            }
+        end
+    end
+
+    vim.keymap.set("n", "<C-=>", ":lua resizeFont(1)<CR>")
+    vim.keymap.set("n", "<C-->", ":lua resizeFont(-1)<CR>")
+    vim.keymap.set("n", "<C-0>", ":lua resizeFont()<CR>")
+end
