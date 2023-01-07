@@ -17,9 +17,6 @@ return require('packer').startup(function(use)
     -- Undotree
     use 'mbbill/undotree'
 
-    -- vim-fugitive
-    use 'tpope/vim-fugitive'
-
     -- LSP
     use {
         'VonHeikemen/lsp-zero.nvim',

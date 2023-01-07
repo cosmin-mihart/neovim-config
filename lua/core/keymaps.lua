@@ -46,9 +46,6 @@ vim.keymap.set("n", "<leader>ps", function()
 end)
 vim.keymap.set("n", "<leader>ls", builtin.live_grep, {})
 
--- Vim fugitive keymaps
-vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
-
 -- Nvim tree keymaps
 vim.keymap.set("n", "<leader>to", vim.cmd.NvimTreeToggle)
 vim.keymap.set("n", "<leader>tf", vim.cmd.NvimTreeFocus)
