@@ -2,15 +2,12 @@ vim.opt.nu = true
 vim.opt.relativenumber = true
 
 -- Nvui Settings
-if vim.g.nvui then
+if vim.g.neovide then
     vim.g.fontFamily = "Fira Code"
-    vim.g.defaultFontSize = 11
+    vim.g.defaultFontSize = 7
     vim.g.currentFontSize = vim.g.defaultFontSize
     vim.opt.guifont = { vim.g.fontFamily, ":h" .. vim.g.defaultFontSize }
-    vim.cmd([[NvuiCmdline 1]])
-    vim.cmd([[NvuiCmdCenterYPos 0.5]])
-    vim.cmd([[NvuiPopupMenu 1]])
-    vim.cmd([[NvuiAnimationsEnabled 1]])
+    vim.g.neovide_scale_factor = 1.0
 end
 
 vim.opt.tabstop = 4

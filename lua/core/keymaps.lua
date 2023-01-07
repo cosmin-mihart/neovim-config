@@ -62,28 +62,19 @@ vim.keymap.set('t', '<M-j>', "<Cmd>wincmd j<CR>")
 vim.keymap.set('t', '<M-k>', "<Cmd>wincmd k<CR>")
 vim.keymap.set('t', '<M-l>', "<Cmd>wincmd l<CR>")
 
--- Font Resize For GUI
-if vim.g.nvui then
-    function resizeFont(amount)
-        amount = amount or 0
-        if amount == 0 then
-            vim.g.currentFontSize = vim.g.defaultFontSize
-            vim.opt.guifont =
-            {
-                vim.g.fontFamily,
-                ":h" .. vim.g.currentFontSize
-            }
+-- Font Resize For Neovide GUI
+if vim.g.neovide then
+    function resizeFont(delta)
+        delta = delta or 0
+        if delta == 0 then
+            vim.g.neovide_scale_factor = 1.0
         else
-            vim.g.currentFontSize = vim.g.currentFontSize + amount
-            vim.opt.guifont =
-            {
-                vim.g.fontFamily,
-                ":h" .. vim.g.currentFontSize
-            }
+            vim.g.neovide_scale_factor = vim.g.neovide_scale_factor + delta
+            print(vim.g.neovide_scale_factor)
         end
     end
 
-    vim.keymap.set("n", "<C-=>", ":lua resizeFont(1)<CR>")
-    vim.keymap.set("n", "<C-->", ":lua resizeFont(-1)<CR>")
-    vim.keymap.set("n", "<C-0>", ":lua resizeFont()<CR>")
+    vim.keymap.set("n", "<C-=>", "<cmd>lua resizeFont(0.1)<CR>")
+    vim.keymap.set("n", "<C-->", "<cmd>lua resizeFont(-0.1)<CR>")
+    vim.keymap.set("n", "<C-0>", "<cmd>lua resizeFont()<CR>")
 end
