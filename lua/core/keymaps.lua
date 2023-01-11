@@ -42,7 +42,7 @@ local builtin = require("telescope.builtin")
 vim.keymap.set("n", "<leader>pf", builtin.find_files, {})
 vim.keymap.set("n", "<leader>gf", builtin.git_files, {})
 vim.keymap.set("n", "<leader>ps", function()
-    builtin.grep_string({ search = vim.fn.input({"Grep > "}) });
+    builtin.grep_string({ search = vim.fn.input("Grep > ") });
 end)
 vim.keymap.set("n", "<leader>ls", builtin.live_grep, {})
 
@@ -70,7 +70,6 @@ if vim.g.neovide then
             vim.g.neovide_scale_factor = 1.0
         else
             vim.g.neovide_scale_factor = vim.g.neovide_scale_factor + delta
-            print(vim.g.neovide_scale_factor)
         end
     end
 

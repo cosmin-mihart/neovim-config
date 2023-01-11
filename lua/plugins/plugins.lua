@@ -12,7 +12,15 @@ return require('packer').startup(function(use)
 
     -- Treesitter
     use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
+    use 'nvim-treesitter/nvim-treesitter-textobjects'
     use 'nvim-treesitter/playground'
+
+    use 'haringsrob/nvim_context_vt'
+
+    -- Nvim surround
+    use 'kylechui/nvim-surround'
+    use 'm4xshen/autoclose.nvim'
+    use 'windwp/nvim-ts-autotag'
 
     -- Undotree
     use 'mbbill/undotree'
@@ -51,6 +59,7 @@ return require('packer').startup(function(use)
     -- Eye candy
     use 'NvChad/nvim-colorizer.lua'
     use 'sunjon/shade.nvim'
+    use 'stevearc/dressing.nvim'
     use({
         'ghillb/cybu.nvim',
         branch = 'main', -- timely updates
@@ -63,6 +72,7 @@ return require('packer').startup(function(use)
         end
     }
     use 'andweeb/presence.nvim'
+    use 'folke/lsp-colors.nvim'
 
     -- Statusbar
     use({
